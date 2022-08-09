@@ -7,7 +7,19 @@ html {
     font-weight: 600;
 }
 
+body {
+    margin: 5px;
+}
+
 /* Header */
+
+header {
+    width: 100%;
+}
+
+.main {
+    width: 100%;
+}
 
 .container-header {
     display: grid;
@@ -15,8 +27,9 @@ html {
     align-items: center;
     justify-items: center;
     height: 102px;
-    background-color: #03355b;
-    border: 2px solid blue;
+    width: 100%;
+    min-width: 480px;
+    max-width: 100%;
 }
 
 .nav-main {
@@ -30,13 +43,23 @@ html {
     width: 100%;
     background-color: #4391be;
     border-right: 2px solid blue;
-
+    border: 2px solid blue;
 }
 
 .nav-main a {
     text-align: center;
     color: black;
     padding: 1em;
+}
+
+.header-filler {
+    background-color: #03355b;
+    border-top: 2px solid blue;
+    border-bottom: 2px solid blue;
+    grid-column: 2 / 3;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
 }
 
 .page-title {
@@ -48,6 +71,7 @@ html {
     text-align: center;
     justify-self: end;
     color: black;
+    border: 2px solid blue;
 }
 
 /* Body */
@@ -61,6 +85,7 @@ html {
     position: center;
     gap: 20px;
     min-height: 40em;
+    width: 100%;
 }
 
 .sidebar {
@@ -79,12 +104,20 @@ html {
     margin: 0px;
 }
 
-.sidebar ul li {
+.sidebar ul button {
+    text-align: left;
+    list-style: none;
+    margin: 0px;
+}
+
+.sidebar button {
+    width: 80px;
     text-align: left;
 }
 
-.sidebar a:hover {
+.sidebar button:hover {
     background-color: #4391be;
+    border-radius: 3px 4px;
 }
 
 #main-body-description {
@@ -94,6 +127,8 @@ html {
     width: 100%;
     height: 100%;
     justify-self: end;
+    min-width: 534px;
+    max-width: 100%;
 }
 
 #main-body-description p {
@@ -112,4 +147,41 @@ html {
     width: 100%;
     height: 100%;
     justify-self: end;
+    min-width: 534px;
+    max-width: 100%;
+}
+
+@media only screen and (max-width: 1227px) {
+    html {
+        font-size: 15px;
+    }
+
+    .container-main {
+        grid-template-columns: 1fr 4fr;
+        grid-template-rows: 1fr 1fr;
+        width: 100%;
+    }
+
+    .sidebar {
+        grid-column: 1 / 2;
+        grid-row: 1 / 3;
+        min-width: 96px;
+    }
+
+    #main-body-description {
+        grid-column: 2 / 3;
+        grid-row: 1 / 2;
+    }
+
+    #main-body-showcase {
+        grid-column: 2 / 3;
+        grid-row: 2 / 3;
+        overflow: hidden;
+    }
+
+    #main-body-description, #main-body-showcase {
+        min-width: 356px;
+        max-width: 100%;
+        min-height: 50%;
+    }
 }
